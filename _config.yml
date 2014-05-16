@@ -1,0 +1,10 @@
+# Site settings
+title: enriquein's blog
+email: enriquein@gmail.com
+description: "Opinions are my own and don't reflect the opinions of my clients, employers, parents, family, kids, or wife."
+baseurl: ""
+url: "http://enriquein.github.io"
+
+# Build settings
+markdown: kramdown
+permalink: pretty
