@@ -1,6 +1,7 @@
 ---
 layout: post
 title:  "Hybrid SQL and NoSQL models with PostgreSQL - An introduction"
+date: "2014-05-17"
 ---
 
 In this series I'm going to be covering the use of PostgreSQL as a hybrid between a 
