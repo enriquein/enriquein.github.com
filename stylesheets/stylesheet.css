@@ -133,7 +133,7 @@ strong {
   font-weight: bold;
 }
 
-img {
+/*img {
   position: relative;
   margin: 0 auto;
   max-width: 739px;
@@ -146,7 +146,7 @@ img {
   -moz-box-shadow: 0 0 5px #ebebeb;
   -o-box-shadow: 0 0 5px #ebebeb;
   -ms-box-shadow: 0 0 5px #ebebeb;
-}
+}*/
 
 p img {
   display: inline;
@@ -262,9 +262,41 @@ Full-Width Styles
   width: 100%;
 }
 
+div.logo-container {
+  background: #fff;
+  border: 5px solid #fff;
+  border-radius: 12px;
+  box-shadow: 0 1px 1px rgba(136,153,166,0.15);
+  position: relative;
+  float: left;
+  display: block !important;
+}
+
+img.logo {
+  border: 0;
+  display: block;
+  border-radius: 12px;
+}
+
+.pull-right {
+  float: right;
+}
+
+.pull-left {
+  float: left;
+}
+
+.clear-fix {
+  clear: both;
+}
+
+.bold-text {
+  font-weight: bold;
+}
+
 .inner {
   position: relative;
-  max-width: 640px;
+  max-width: 800px;
   padding: 20px 10px;
   margin: 0 auto;
 }
@@ -294,7 +326,7 @@ Full-Width Styles
 }
 
 #header_wrap .inner {
-  padding: 50px 10px 30px 10px;
+  padding: 30px 10px 20px 10px;
 }
 
 #project_title {
@@ -303,6 +335,8 @@ Full-Width Styles
   font-size: 42px;
   font-weight: 700;
   text-shadow: #111 0px 0px 10px;
+  padding-left: 200px;
+  padding-top: 32px;
 }
 
 #project_tagline {
@@ -311,6 +345,7 @@ Full-Width Styles
   font-weight: 300;
   background: none;
   text-shadow: #111 0px 0px 10px;
+  padding-left: 200px;
 }
 
 #downloads {
@@ -359,14 +394,17 @@ Full-Width Styles
 }
 
 #main_content {
-  padding-top: 40px;
+  padding-top: 20px;
 }
 
 #footer_wrap {
   background: #212121;
 }
 
-
+.short-contents {
+  margin-right: 25px;
+  margin-left: 25px;
+}
 
 /*******************************************************************************
 Small Device Styles

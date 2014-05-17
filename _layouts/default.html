@@ -18,11 +18,13 @@
     <!-- HEADER -->
     <div id="header_wrap" class="outer">
         <header class="inner">
-          <a id="forkme_banner" href="https://github.com/enriquein">View on GitHub</a>
-
+          <a id="forkme_banner" href="https://github.com/enriquein">View my GitHub profile</a>
+          <div class="logo-container">
+            <img class="logo" src="{{ "/images/logo.jpg" | prepend: site.baseurl }}" />  
+          </div>
           <h1 id="project_title">enriquein&#39;s blog</h1>
           <h2 id="project_tagline">{{ site.description }}</h2>
-
+          <div class="clear-fix"></div>
         </header>
     </div>
 
@@ -36,7 +38,12 @@
     <!-- FOOTER  -->
     <div id="footer_wrap" class="outer">
       <footer class="inner">
-        <p>Powered by <a href="http://jekyllrb.com">Jekyll</a></p>
+        <p>
+          Copyright &copy; <script type="text/javascript">document.write(new Date().getFullYear());</script> enriquein. 
+          All rights reserved.
+        </p>
+        <p>Powered by <a href="http://jekyllrb.com">Jekyll</a> | Hosted on <a href="http://github.com">Github</a></p>
+        <p class="rss-subscribe">Subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p>
       </footer>
     </div>
 
