@@ -1,16 +1,14 @@
 ---
 layout: default
 ---
-  <ul class="posts">
-    {% for post in site.posts %}
-      <div class="posts">
-        <h4>
-          <span class="post-date">{{ post.date | date: "%b %-d, %Y" }} | </span>
-          <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
-        </h4>
-        <div class="short-contents">
-          {{ post.excerpt | remove: '</p>' }} <a href="{{ post.url | prepend: site.baseurl }}">Continue reading&hellip;</a></p>
-        </div>
-      </div>
-    {% endfor %}
-  </ul>
+{% for post in site.posts %}
+  <div class="post">
+    <h4>
+      <span class="post-date">{{ post.date | date: "%b %-d, %Y" }} | </span>
+      <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+    </h4>
+    <div class="short-contents">
+      {{ post.excerpt | remove: '</p>' }} <a href="{{ post.url | prepend: site.baseurl }}">Continue reading&hellip;</a></p>
+    </div>
+  </div>
+{% endfor %}

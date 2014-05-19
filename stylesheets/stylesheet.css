@@ -294,6 +294,11 @@ img.logo {
   font-weight: bold;
 }
 
+.post {
+  margin-bottom: 30px;
+  border-bottom: 2px solid gray;
+}
+
 .comments {
   border: 3px solid #c0c0c0;
   padding: 10px;
