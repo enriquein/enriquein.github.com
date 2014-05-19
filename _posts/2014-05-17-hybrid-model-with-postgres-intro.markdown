@@ -26,6 +26,8 @@ mostly what I'm going to cover in this series.
 
 I'll be updating this post with links to the other parts as they become available.
 
+{% include hybrid-model-series-links.html %}
+
 [pg]: http://www.postgresql.org/about/
 [nosql]: http://en.wikipedia.org/wiki/Nosql#Document_store
 [orm]: http://en.wikipedia.org/wiki/Object-relational_mapping

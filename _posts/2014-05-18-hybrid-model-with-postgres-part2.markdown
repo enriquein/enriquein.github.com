@@ -1,6 +1,7 @@
 ---
 layout: post
 title:  "Hybrid SQL and NoSQL models with PostgreSQL - Part 2: The data model"
+date: "2014-05-18"
 ---
 
 In this post I'll be writing about the database model and also show some examples of 
@@ -45,15 +46,17 @@ will need to cast your values from text.
 
 #### The fun stuff
 
-With that in mind, now we can do stuff like this:
+Before moving forward, I'd advise you see the documentation about [JSON operators][jsonops], specifically Table 9-39. It'll help out 
+making sense of what the `->` and `->>` operators do and the subtle difference between them. With that in mind, let's dive into 
+some cool things we can do with JSON fields:
 
 {% highlight postgres %}
 -- Get all forms that have already been printed out
 select * from forms where (data->>'Printed')::bool = true;
 {% endhighlight %}
 
-Lets go over the query. First, we use `data->>'Printed'` to retrieve the value of `Printed` as text. Since the JSON data type is missing many operators, we can't just simply do `data->'Printed' = true` as it will fail to cast that JSON object to bool. To work around this, we use the `::bool` operator to cast the text value to a boolean . In Postgres we 
-do casts by appending `::<type>` to a value. In our case we want to cast the string 
+Lets go over the query. First, we use `data->>'Printed'` to retrieve the value of `Printed` as text. Since the JSON data type is missing many operators, we can't just simply do `data->'Printed' = true` as it will fail to cast that JSON object to bool. To work around this, we use the `::bool` operator to cast the value of the property _as text_ to a boolean . In Postgres we 
+do casts by appending `::<type>` to a value. In our case we want to cast the text 
 value returned by `data->>'Printed'` to a `bool`. Note that we wrap the entire `data->>'Printed'` part in parentheses to avoid Postgres from mistakingly casting the text `'Printed'` to `bool`. You will see this pattern repeat itself in all of the following examples.
 
 Other things we can do:
@@ -131,7 +134,8 @@ from
 
 One thing that you can't do yet using regular queries is updating values within a 
 JSON document. In our case, we don't need to do this because our application will 
-generate a new JSON document each time, so we update the entire document in one go. For example, if we wanted to update the `Filed` flag, we can't do:
+generate a new JSON document each time, so we update the entire document in one go. 
+For example, if we wanted to update the `Filed` property, we can't do:
 
 {% highlight postgres %}
 update forms set data->'Filed' = true;
@@ -186,9 +190,15 @@ insert into forms (client, data) values
 Hopefully this gives you an idea of how we can use regular ol' sql queries 
 to retrieve JSON data. There's some functionality missing from the JSON data type, no doubt. 
 Don't let this discourage you, though. The JSON data type is evolving and there are changes planned for the 9.4 
-release to add operators and other great stuff to it. 
+release to add operators and other great stuff to it. For those of you concerned about performance, you can use 
+[expression indexes][indexing] to index your JSON fields. If I can find the time, I'll add a post at the end of 
+the series with some numbers on this (I make no promises, though).
 
 In the next part of this series I'll show you how I implemented the data access layer on a C# application. Stay tuned.
 
+{% include hybrid-model-series-links.html %}
+
 [totimestamp]: http://www.postgresql.org/docs/9.3/static/functions-formatting.html
 [nullif]: http://www.postgresql.org/docs/9.3/static/functions-conditional.html
+[indexing]: http://www.postgresql.org/docs/9.3/static/indexes-expressional.html
+[jsonops]: http://www.postgresql.org/docs/9.3/static/functions-json.html

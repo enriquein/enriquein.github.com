@@ -120,6 +120,15 @@ a {
 
 a:hover, a:focus {text-decoration: underline;}
 
+.return-link-wrapper {
+  margin-top: 10px;
+  margin-bottom: 10px;  
+}
+
+a.return-link {
+  font-weight: bold;
+}
+
 footer a {
   color: #F2F2F2;
   text-decoration: underline;
