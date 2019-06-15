@@ -2,7 +2,7 @@
 <html ng-app="munchkin-counter">
 
 <head>
-    <meta name="viewport" content="width=device-width">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
     <meta charset="utf-8"/>
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
     <meta http-equiv="Pragma" content="no-cache">
@@ -29,7 +29,7 @@
         }
 
         .top-margin {
-            margin-top: 35px;
+            margin-top: 24px;
         }
 
         .right-margin {
@@ -42,7 +42,7 @@
         }
 
         .winner-text {
-            font-size: 24px;
+            font-size: 18px;
         }
 
         .total-text {
@@ -104,14 +104,21 @@
             };
 
             this.addOne = function(player, stat) {
+                var levelMax = stat === 'level' ? 10 : 999;
+
                 player[stat] += 1;
+
+                if (player[stat] > levelMax) {
+                    player[stat] = levelMax;
+                }
             };
 
             this.removeOne = function(player, stat) {
+                var levelMin = stat === 'level' ? 1 : 0;
                 player[stat] -= 1;
 
-                if (player[stat] < 0)
-                    player[stat] = 0;
+                if (player[stat] < levelMin)
+                    player[stat] = levelMin;
             };
 
             this.init = function() {
@@ -169,7 +176,7 @@
                         </h3>
                         <h3 class="panel-title" ng-if="player.level >= 10">
                             <span class="winner-text">
-                                🏆 👑 {{ player.name}} wins! 👑 🏆
+                                🏆 {{ player.name}} wins! 🏆
                             </span>
                         </h3>
                     </div>
